@@ -3,22 +3,19 @@
 @tailwind utilities;
 
 .button {
-    padding: 5px 10px;
-    margin: 0 5px;
-    border: none;
-    background-color: #efefef;
-    color: #333;
-    border-radius: 5px;
-    cursor: pointer;
-    user-select: none; /* prevent text selection */
+    @apply py-2 px-4; /* Tailwind's padding utilities */
+    @apply border-none bg-gray-200 text-gray-800; /* Border, background, and text color */
+    @apply rounded cursor-pointer; /* Border radius and cursor */
+    @apply transition-colors duration-200; /* Transition for hover effect */
   }
   
   .button:hover {
-    background-color: #ddd;
+    @apply bg-gray-300; /* Darker shade on hover */
   }
   
-  .count-display {
-    min-width: 40px;
-    text-align: center;
+  @media (min-width: 640px) {
+    .button {
+      @apply py-3 px-5; /* Larger padding on screens wider than 640px */
+    }
   }
   

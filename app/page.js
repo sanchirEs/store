@@ -6,7 +6,7 @@ import {
   addDoc,
   updateDoc,
   doc,
-  writeBatch 
+  writeBatch,
 } from "firebase/firestore";
 import { db } from "./firebaseConfig";
 import { getDoc } from "firebase/firestore";
@@ -205,7 +205,6 @@ export default function Home() {
       } catch (error) {
         console.error("Error fetching data from Firestore:", error);
       }
-
     } catch (error) {
       console.error("Error removing products: ", error);
       // Handle errors, such as showing an error notification
@@ -213,33 +212,26 @@ export default function Home() {
   };
 
   return (
-    <main className="max-w-7xl mx-auto p-8 my-auto bg-gray-100 rounded-lg shadow">
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-semibold text-gray-800 py-5">
-          Product Dashboard
-        </h1>
-        <div>
+    <main className="h-screen max-w-7xl mx-auto p-8 my-auto bg-gray-100 rounded-lg shadow">
+      <div className="flex flex-col sm:flex-row justify-between items-center mb-8">
+        <h1 className="text-2xl font-bold mb-4 sm:mb-0">Product Dashboard</h1>
+
+        <div className="flex flex-col sm:flex-row justify-end items-center w-full sm:w-auto">
           <input
-            type="text"
+            className="w-full sm:w-auto p-2 border rounded mb-4 sm:mb-0 sm:mr-4"
             placeholder="Search by name or barcode..."
-            value={search}
-            onChange={handleSearchChange}
-            className={`${styles.searchInput} mr-3`}
           />
-          <button 
-            onClick={deleteSelectedProducts} 
-            className="py-2 px-4 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded shadow-lg"
-          >
+
+          <button className="w-full sm:w-auto bg-red-500 text-white py-2 px-4 rounded">
             Delete Selected
           </button>
         </div>
       </div>
-
       <div className="overflow-x-auto relative bg-white rounded-lg shadow-md">
         <table className="w-full text-sm text-gray-500">
           <thead className={styles.tableHeader}>
             <tr>
-              <th scope="col" className="py-3 px-6">
+              <th scope="col" className="py-3 px-2">
                 Select
               </th>
               <th scope="col" className="py-3 px-6">
