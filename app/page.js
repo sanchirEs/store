@@ -220,9 +220,12 @@ export default function Home() {
           <input
             className="w-full sm:w-auto p-2 border rounded mb-4 sm:mb-0 sm:mr-4"
             placeholder="Search by name or barcode..."
+            onChange={handleSearchChange}
           />
 
-          <button className="w-full sm:w-auto bg-red-500 text-white py-2 px-4 rounded">
+          <button 
+            onClick={deleteSelectedProducts}
+            className="w-full sm:w-auto bg-red-500 text-white py-2 px-4 rounded">
             Delete Selected
           </button>
         </div>
